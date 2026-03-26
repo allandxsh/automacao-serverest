@@ -32,11 +32,11 @@ newman run postman/ServeRest_Collection.json -e postman/ServeRest_Environment.js
 ## 🧪 Cobertura de Testes (Cenários Implementados)
 A suíte foi dividida estrategicamente para cobrir todos os comportamentos mapeados na documentação da API:
 
-✅ Autenticação (Login): Geração dinâmica de JWT, validação de sucesso e falha (401).
-✅ CRUD (Caminho Feliz): Criação, Leitura, Atualização (incluindo Upsert) e Exclusão de usuários.
-✅ Regras de Negócio (400): Bloqueio de e-mails duplicados, formatos de e-mail inválidos e campos obrigatórios ausentes.
-✅ Segurança e Autorização (401 / 403): Validação de tokens inválidos/ausentes e tentativa de ações em rotas restritas sem perfil de Administrador.
-✅ Performance (429): Teste de stress validando o bloqueio de requisições após o limite de 100 chamadas por minuto.
+* ✅ Autenticação (Login): Geração dinâmica de JWT, validação de sucesso e falha (401).
+* ✅ CRUD (Caminho Feliz): Criação, Leitura, Atualização (incluindo Upsert) e Exclusão de usuários.
+* ✅ Regras de Negócio (400): Bloqueio de e-mails duplicados, formatos de e-mail inválidos e campos obrigatórios ausentes.
+* ✅ Segurança e Autorização (401 / 403): Validação de tokens inválidos/ausentes e tentativa de ações em rotas restritas sem perfil de Administrador.
+* ✅ Performance (429): Teste de stress validando o bloqueio de requisições após o limite de 100 chamadas por minuto.
 
 ### ⚠️ Bugs e Divergências Identificados
 
