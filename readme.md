@@ -41,3 +41,5 @@ A suíte foi dividida estrategicamente para cobrir todos os comportamentos mapea
 ### ⚠️ Bugs e Divergências Identificados
 
 Segurança na Rota de Usuários: O requisito do desafio estipula que "A autenticação é feita via token JWT". Contudo, identificou-se que as rotas de Criação e Exclusão (/usuarios) estão abertas na API do ServeRest, permitindo manipulação sem o cabeçalho de Authorization. Os testes de exclusão foram ajustados para refletir o comportamento real (200 OK sem token), mas isso caracteriza uma vulnerabilidade em relação ao requisito original.
+
+Ausência de Rate Limit (Requisito Não-Funcional):** O desafio exige que a API possua limitação de 100 requisições por minuto. O teste de stress (101 requisições sequenciais) foi executado em aproximadamente 25 segundos, porém a API não retornou o status `429 Too Many Requests`, processando todas as chamadas com sucesso (`200 OK`). O teste foi ajustado para atuar como um *Known Issue* (passando a pipeline, mas evidenciando o bug no relatório).
