@@ -12,10 +12,10 @@ jobs:
 
     steps:
       - name: Checkout do Código
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Setup Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: '18'
 
@@ -24,7 +24,7 @@ jobs:
           npm install -g newman
           npm install -g newman-reporter-htmlextra
 
-      - name: Executar Testes Funcionais
+      - name: 🧪 Executar Testes Funcionais
         run: |
           newman run postman/ServeRest_Collection.json \
             -e postman/ServeRest_Environment.json \
@@ -42,7 +42,7 @@ jobs:
             --reporter-htmlextra-export relatorio-performance.html
 
       - name: Upload dos Relatórios (Artefatos)
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         if: always()
         with:
           name: Relatorios-Newman
