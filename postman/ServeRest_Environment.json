@@ -1,0 +1,46 @@
+{
+	"id": "e383e717-66d1-4aa2-bb91-baa7f219c5a3",
+	"name": "ServerRest - QA",
+	"values": [
+		{
+			"key": "url_base",
+			"value": "https://serverest.dev",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "token",
+			"value": "",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "contador_execucoes",
+			"value": "",
+			"type": "any",
+			"enabled": true
+		},
+		{
+			"key": "",
+			"value": "",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "id_usuario",
+			"value": "",
+			"type": "any",
+			"enabled": true
+		},
+		{
+			"key": "emailNovo",
+			"value": "",
+			"type": "any",
+			"enabled": true
+		}
+	],
+	"color": null,
+	"_postman_variable_scope": "environment",
+	"_postman_exported_at": "2026-03-26T04:21:12.095Z",
+	"_postman_exported_using": "Postman/12.3.3"
+}

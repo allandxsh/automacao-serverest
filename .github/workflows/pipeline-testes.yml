@@ -1,0 +1,51 @@
+name: ServeRest API Tests CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  testes-api:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout do Código
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Instalar Newman e Reporter HTML
+        run: |
+          npm install -g newman
+          npm install -g newman-reporter-htmlextra
+
+      - name: Executar Testes Funcionais
+        run: |
+          newman run postman/ServeRest_Collection.json \
+            -e postman/ServeRest_Environment.json \
+            --folder "Testes Funcionais" \
+            -r cli,htmlextra \
+            --reporter-htmlextra-export relatorio-funcional.html
+
+      - name: Executar Teste de Rate Limit (Performance)
+        run: |
+          newman run postman/ServeRest_Collection.json \
+            -e postman/ServeRest_Environment.json \
+            --folder "Performance" \
+            -n 101 \
+            -r cli,htmlextra \
+            --reporter-htmlextra-export relatorio-performance.html
+
+      - name: Upload dos Relatórios (Artefatos)
+        uses: actions/upload-artifact@v3
+        if: always()
+        with:
+          name: Relatorios-Newman
+          path: |
+            relatorio-funcional.html
+            relatorio-performance.html
